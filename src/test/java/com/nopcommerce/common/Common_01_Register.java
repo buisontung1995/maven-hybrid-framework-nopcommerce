@@ -18,14 +18,15 @@ import pageObjects.users.UserLoginPO;
 import pageObjects.users.UserRegisterPO;
 import utilities.Environment;
 
-public class Common_01_Register_Cookies extends BaseTest {
+public class Common_01_Register extends BaseTest {
 
 	private WebDriver driver;
 	private UserHomePO userHomePage;
 	private UserRegisterPO userRegisterPage;
 	private UserLoginPO userLoginPage;
-	private String firstName, lastName, emailAddress, password;
+	private String firstName, lastName;
 	private Environment env;
+	public static String emailAddress, password;
 	public static Set<Cookie> loggedCookies;
 
 
@@ -42,8 +43,8 @@ public class Common_01_Register_Cookies extends BaseTest {
 		userHomePage = PageGeneratorManager.getUserHomePO(driver);
 		driver.manage().window().maximize();
 		
-		firstName = "Automation";
-		lastName = "FC";
+		firstName = "Tung";
+		lastName = "Bui";
 		emailAddress = "afc" + randomNumber() + "@mail.vn";
 		password = "123456";
 		
@@ -71,8 +72,8 @@ public class Common_01_Register_Cookies extends BaseTest {
 		log.info("Precondition - Step 08: Verify register successful message is displayed");
 		Assert.assertEquals(userRegisterPage.getRegisterSuccessMessage(), "Your registration completed");
 		
-		log.info("Precondition - Step 09: Click to Home Page Logo");	
-		userHomePage = userRegisterPage.clickToHomePageLogo();
+		log.info("Precondition - Step 09: Click to Log out link");
+		userHomePage = userRegisterPage.clickToLogOutLink();
 		
 		log.info("Precondition - Step 10: Click to 'Login' link");
 		userLoginPage = userHomePage.clickToLoginLink();
@@ -88,7 +89,6 @@ public class Common_01_Register_Cookies extends BaseTest {
 		
 		loggedCookies = userHomePage.getAllCookies(driver);
 		driver.quit();
-		
 	}
 	
 	@AfterTest

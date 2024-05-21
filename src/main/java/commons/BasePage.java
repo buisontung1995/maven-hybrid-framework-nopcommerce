@@ -17,6 +17,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageUIs.users.UserBasePUI;
+import pageUIs.users.UserChangePasswordPUI;
+import pageUIs.users.UserSideBarMyAccountPUI;
 
 public class BasePage {
 
@@ -490,6 +493,16 @@ public class BasePage {
 
 	protected void waitForElementClickable(WebDriver driver, String locatorValue, String... dynamicValues) {
 		new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.elementToBeClickable(getByLocator(locatorValue, dynamicValues)));
+	}
+
+	public String getBarNotificationText(WebDriver driver) {
+		waitForElementVisible(driver, UserBasePUI.BAR_NOTIFICATION);
+		return getElementText(driver, UserBasePUI.BAR_NOTIFICATION);
+	}
+
+	public void clickToCloseNotificationButton(WebDriver driver) {
+		waitForElementClickable(driver, UserBasePUI.CLOSE_NOTIFICATION_BUTTON);
+		clickToElement(driver, UserBasePUI.CLOSE_NOTIFICATION_BUTTON);
 	}
 
 	public Set<Cookie> getAllCookies(WebDriver driver) {

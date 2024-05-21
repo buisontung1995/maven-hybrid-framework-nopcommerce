@@ -28,4 +28,14 @@ public class UserLoginPO extends BasePage {
 		clickToElement(driver, UserLoginPUI.LOGIN_BUTTON);
 		return PageGeneratorManager.getUserHomePO(driver);
 	}
+
+	public String getErrorMessageAtEmailTextbox() {
+		waitForElementVisible(driver, UserLoginPUI.EMAIL_ERROR_MESSAGE);
+		return getElementText(driver, UserLoginPUI.EMAIL_ERROR_MESSAGE);
+	}
+
+	public String getSummartErrorMessage() {
+		waitForElementVisible(driver, UserLoginPUI.SUMMARY_ERROR_MESSAGE);
+		return getElementText(driver, UserLoginPUI.SUMMARY_ERROR_MESSAGE);
+	}
 }

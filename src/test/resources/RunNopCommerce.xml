@@ -5,13 +5,14 @@
 		<listener class-name= "reportConfig.AllureTestListener" />
 	</listeners>
 
-	<test name="Run on Chrome">
+	<test name="Run on Chrome" preserve-order = "true">
 		<parameter name="envName" value="local" />
 		<parameter name="browserName" value="chrome" />
 		<parameter name="browserVersion" value="latest" />
 		<parameter name="osName" value="Windows 11" />
 		<classes>
-			<class name="com.nopcommerce.user.User_01_Register" />
+			<class name="com.nopcommerce.common.Common_01_Register" />
+			<class name="com.nopcommerce.user.User_04_Search" />
 		</classes>
 	</test>
 </suite>
