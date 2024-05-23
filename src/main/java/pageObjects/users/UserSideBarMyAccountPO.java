@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
-import pageUIs.users.UserCustomerInfoPUI;
-import pageUIs.users.UserSideBarMyAccountPUI;
 
 public class UserSideBarMyAccountPO extends BasePage {
     private WebDriver driver;
@@ -19,7 +17,7 @@ public class UserSideBarMyAccountPO extends BasePage {
         clickToElement(driver, pageUIs.users.UserSideBarMyAccountPUI.DYNAMIC_LINK_AT_MY_ACCOUNT_AREA, pageName);
         switch (pageName) {
             case "Customer info":
-                return PageGeneratorManager.getUserCustomerInforPO(driver);
+                return PageGeneratorManager.getUserCustomerInfoPO(driver);
             case "Addresses":
                 return PageGeneratorManager.getUserAddressesPO(driver);
             case "Orders":

@@ -18,7 +18,7 @@ public class PageGeneratorManager {
 		return new UserLoginPO(driver);
 	}
 	
-	public static UserCustomerInfoPO getUserCustomerInforPO(WebDriver driver) {
+	public static UserCustomerInfoPO getUserCustomerInfoPO(WebDriver driver) {
 		return new UserCustomerInfoPO(driver);
 	}
 	
@@ -44,6 +44,14 @@ public class PageGeneratorManager {
 
 	public static UserSearchPO getUserSearchPO(WebDriver driver) {
 		return new UserSearchPO(driver);
+	}
+
+	public static UserComputersPO getUserComputersPO(WebDriver driver) {
+		return new UserComputersPO(driver);
+	}
+
+	public static UserNotebooksPO getUserNotebooksPO(WebDriver driver) {
+		return new UserNotebooksPO(driver);
 	}
 
 }

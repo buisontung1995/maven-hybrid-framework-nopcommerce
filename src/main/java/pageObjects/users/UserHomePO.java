@@ -37,7 +37,7 @@ public class UserHomePO extends BasePage {
 	public UserCustomerInfoPO clickToMyAccountLink() {
 		waitForElementClickable(driver, UserHomePUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, UserHomePUI.MY_ACCOUNT_LINK);
-		return PageGeneratorManager.getUserCustomerInforPO(driver);
+		return PageGeneratorManager.getUserCustomerInfoPO(driver);
 	}
 
 	public UserProductDetailsPO clickToProductDetailByName(String productName) {
@@ -50,5 +50,11 @@ public class UserHomePO extends BasePage {
 		waitForElementClickable(driver, UserHomePUI.SEARCH_LINK);
 		clickToElement(driver, UserHomePUI.SEARCH_LINK);
 		return PageGeneratorManager.getUserSearchPO(driver);
+	}
+
+	public UserComputersPO clickToComputersMenu() {
+		waitForElementClickable(driver, UserHomePUI.COMPUTERS_MENU);
+		clickToElement(driver, UserHomePUI.COMPUTERS_MENU);
+		return PageGeneratorManager.getUserComputersPO(driver);
 	}
 }

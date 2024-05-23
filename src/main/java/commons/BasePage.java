@@ -330,6 +330,32 @@ public class BasePage {
 		return getWebElement(driver, locatorValue, dynamicValues).isSelected();
 	}
 
+	protected boolean isElementUndisplayed(WebDriver driver, String xpathLocator) {
+		overrideImplicitTimeout(driver, shortTimeout);
+		List<WebElement> elements = getListWebElement(driver, xpathLocator);
+		overrideImplicitTimeout(driver, longTimeout);
+		if (elements.size() == 0) {
+			return true;
+		} else if (elements.size() > 0 && !elements.get(0).isDisplayed() ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	protected boolean isElementUndisplayed(WebDriver driver, String xpathLocator, String... dynamicValues) {
+		overrideImplicitTimeout(driver, shortTimeout);
+		List<WebElement> elements = getListWebElement(driver, xpathLocator, dynamicValues);
+		overrideImplicitTimeout(driver, longTimeout);
+		if (elements.size() == 0) {
+			return true;
+		} else if (elements.size() > 0 && !elements.get(0).isDisplayed() ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	protected void switchToFrameIframe(WebDriver driver, String locatorValue) {
 		driver.switchTo().frame(getWebElement(driver, locatorValue));
 	}
@@ -444,7 +470,6 @@ public class BasePage {
 
 	protected void overrideImplicitTimeout(WebDriver driver, long timeOut) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeOut));
-		;
 	}
 
 	protected void waitForElementVisible(WebDriver driver, String locatorValue) {
@@ -465,25 +490,25 @@ public class BasePage {
 
 	protected void waitForElementInvisible(WebDriver driver, String locatorValue) {
 		overrideImplicitTimeout(driver, shortTimeout);
-		new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(locatorValue)));
+		new WebDriverWait(driver, Duration.ofSeconds(shortTimeout)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(locatorValue)));
 		overrideImplicitTimeout(driver, longTimeout);
 	}
 
 	protected void waitForElementInvisible(WebDriver driver, String locatorValue, String... dynamicValues) {
 		overrideImplicitTimeout(driver, shortTimeout);
-		new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(locatorValue, dynamicValues)));
+		new WebDriverWait(driver, Duration.ofSeconds(shortTimeout)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(locatorValue, dynamicValues)));
 		overrideImplicitTimeout(driver, longTimeout);
 	}
 
 	protected void waitForAllElementInvisible(WebDriver driver, String locatorValue) {
 		overrideImplicitTimeout(driver, shortTimeout);
-		new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.invisibilityOfAllElements(getListWebElement(driver, locatorValue)));
+		new WebDriverWait(driver, Duration.ofSeconds(shortTimeout)).until(ExpectedConditions.invisibilityOfAllElements(getListWebElement(driver, locatorValue)));
 		overrideImplicitTimeout(driver, longTimeout);
 	}
 
 	protected void waitForAllElementInvisible(WebDriver driver, String locatorValue, String... dynamicValues) {
 		overrideImplicitTimeout(driver, shortTimeout);
-		new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.invisibilityOfAllElements(getListWebElement(driver, locatorValue, dynamicValues)));
+		new WebDriverWait(driver, Duration.ofSeconds(shortTimeout)).until(ExpectedConditions.invisibilityOfAllElements(getListWebElement(driver, locatorValue, dynamicValues)));
 		overrideImplicitTimeout(driver, longTimeout);
 	}
 

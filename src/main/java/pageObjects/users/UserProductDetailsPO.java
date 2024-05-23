@@ -40,6 +40,6 @@ public class UserProductDetailsPO extends BasePage {
 	public UserCustomerInfoPO clickToMyAccountLink() {
 		waitForElementClickable(driver, UserProductDetailsPUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, UserProductDetailsPUI.MY_ACCOUNT_LINK);
-		return PageGeneratorManager.getUserCustomerInforPO(driver);
+		return PageGeneratorManager.getUserCustomerInfoPO(driver);
 	}
 }

@@ -11,8 +11,7 @@
 		<parameter name="browserVersion" value="latest" />
 		<parameter name="osName" value="Windows 11" />
 		<classes>
-			<class name="com.nopcommerce.common.Common_01_Register" />
-			<class name="com.nopcommerce.user.User_04_Search" />
+			<class name="com.nopcommerce.user.User_05_Sort" />
 		</classes>
 	</test>
 </suite>
