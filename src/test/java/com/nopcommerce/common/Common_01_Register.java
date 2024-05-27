@@ -24,9 +24,8 @@ public class Common_01_Register extends BaseTest {
 	private UserHomePO userHomePage;
 	private UserRegisterPO userRegisterPage;
 	private UserLoginPO userLoginPage;
-	private String firstName, lastName;
 	private Environment env;
-	public static String emailAddress, password;
+	public static String firstName, lastName, emailAddress, password;
 	public static Set<Cookie> loggedCookies;
 
 

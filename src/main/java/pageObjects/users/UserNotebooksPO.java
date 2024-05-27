@@ -1,9 +1,11 @@
 package pageObjects.users;
 
 import commons.BasePage;
+import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.page.Page;
 import pageUIs.users.UserNotebooksPUI;
 
 import java.util.ArrayList;
@@ -130,5 +132,19 @@ public class UserNotebooksPO extends BasePage {
 	@Step("Verify Next Page icon is undisplayed")
 	public boolean isNextPageIconUndisplayed() {
 		return isElementUndisplayed(driver, UserNotebooksPUI.NEXT_PAGE_ICON);
+	}
+
+	@Step("Click to '{0}' product")
+    public UserProductDetailsPO clickToProductByProductName(String productName) {
+		waitForElementClickable(driver, UserNotebooksPUI.PRODUCT_NAME_LINK, productName);
+		clickToElement(driver, UserNotebooksPUI.PRODUCT_NAME_LINK, productName);
+		return PageGeneratorManager.getUserProductDetailsPO(driver);
+    }
+
+	@Step("Click To 'Recently viewed products' link")
+	public UserRecentlyViewedProductsPO clickToRecentlyViewedProductsLink() {
+		waitForElementClickable(driver, UserNotebooksPUI.RECENTLY_VIEWED_PRODUCTS_LINK);
+		clickToElement(driver, UserNotebooksPUI.RECENTLY_VIEWED_PRODUCTS_LINK);
+		return PageGeneratorManager.getUserRecentlyViewedProductsPO(driver);
 	}
 }

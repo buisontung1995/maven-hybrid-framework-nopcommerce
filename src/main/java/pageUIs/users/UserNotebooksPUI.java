@@ -8,4 +8,6 @@ public class UserNotebooksPUI {
     public static final String DISPLAYED_DROP_DOWN = "id=products-pagesize";
     public static final String NEXT_PAGE_ICON = "xpath=//li[@class='next-page']/a";
     public static final String PREVIOUS_PAGE_ICON = "xpath=//li[@class='previous-page']/a";
+    public static final String PRODUCT_NAME_LINK = "xpath=//h2[@class='product-title']/a[text()='%s']";
+    public static final String RECENTLY_VIEWED_PRODUCTS_LINK = "xpath=//a[text()='Recently viewed products']";
 }
