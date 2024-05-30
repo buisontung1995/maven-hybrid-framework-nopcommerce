@@ -27,4 +27,6 @@ public class UserProductDetailsPUI {
     public static final String PRODUCT_PRICE = "xpath=//div[@class='product-price']/span";
     public static final String PRODUCT_QUANTITY_TEXTBOX = "xpath=//div[@class='add-to-cart']//input[@id='product_enteredQuantity_1']";
     public static final String UPDATE_BUTTON = "xpath=//button[text()='Update']";
+    public static final String SKU_VALUE = "xpath=//span[contains(text(), 'SKU')]/following-sibling::span";
+    public static final String QUANTITY_TEXTBOX = "xpath=//button[text()='Add to cart']/preceding-sibling::input";
 }

@@ -177,4 +177,16 @@ public class UserProductDetailsPO extends BasePage {
         waitForElementClickable(driver, UserProductDetailsPUI.UPDATE_BUTTON);
         clickToElement(driver, UserProductDetailsPUI.UPDATE_BUTTON);
     }
+
+    @Step("Get SKU Value")
+    public String getSKUValue() {
+        waitForElementVisible(driver, UserProductDetailsPUI.SKU_VALUE);
+        return getElementText(driver, UserProductDetailsPUI.SKU_VALUE);
+    }
+
+    @Step("Get Quantity Value")
+    public String getQuantityValue() {
+        waitForElementVisible(driver, UserProductDetailsPUI.QUANTITY_TEXTBOX);
+        return getElementAttribute(driver, UserProductDetailsPUI.QUANTITY_TEXTBOX, "value");
+    }
 }
